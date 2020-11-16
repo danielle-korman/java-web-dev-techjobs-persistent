@@ -3,28 +3,25 @@ package org.launchcode.javawebdevtechjobspersistent.models;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Job extends AbstractEntity{
+public class Job extends AbstractEntity {
 
 
 @ManyToOne
-@NotNull(message = "Employer Required")
+//@NotNull(message = "Employer Required")
     private Employer employer;
 
     @ManyToMany
     private List<Skill> skills  = new ArrayList<>();
 
+    public Job() {}
 
-    public Job() {
-    }
-
-    public Job(Employer anEmployer, List<Skill> someSkills) {
+    public Job(Employer employer, List<Skill> someSkills) {
         super();
-        this.employer = anEmployer;
+        this.employer = employer;
         this.skills = someSkills;
     }
 

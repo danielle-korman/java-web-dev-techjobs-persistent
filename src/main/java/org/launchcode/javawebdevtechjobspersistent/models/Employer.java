@@ -10,11 +10,10 @@ import java.util.List;
 public class Employer extends AbstractEntity {
 
 
-    @OneToMany(mappedBy = "employer")
-    private final List<Job> jobs = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "employer_id")
+    private List<Job> jobs = new ArrayList<>();
 
-    @JoinColumn
-    private int employerId;
 
     private String location;
 
@@ -32,6 +31,10 @@ public class Employer extends AbstractEntity {
     @Override
     public String toString() {
         return location;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
     }
 
     public Employer() {}

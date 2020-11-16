@@ -11,5 +11,10 @@ FROM job
 WHERE location = "St. Louis";
 
 ## Part 3: Test it with SQL
+DROP TABLE job;
 
 ## Part 4: Test it with SQL
+SELECT skills, description
+FROM job
+ORDER BY skills ASC
+WHERE skills IS NOT NULL;
